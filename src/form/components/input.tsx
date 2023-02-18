@@ -6,6 +6,7 @@ export const InputValue = (props: any) => {
     <div>
       <TextField
       type="number"
+      value={props.value}
         error={props.error}
         name={props.field}
         color="secondary"

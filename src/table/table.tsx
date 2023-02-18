@@ -19,6 +19,7 @@ export function TableBas() {
   ];
   
   const { forms } = useContext(FormContext);
+  console.log("form udate", forms);
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -39,9 +40,9 @@ export function TableBas() {
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell align="center">{consecutivo + 1}</TableCell>
-              <TableCell align="center">{row.value}</TableCell>
+              <TableCell align="center">{row.Valor}</TableCell>
               <TableCell align="center">{options[row.idItemSelected-1]}</TableCell>
-              <TableCell align="center">{row.trm}</TableCell>
+              <TableCell align="center">{row.TMR}</TableCell>
             </TableRow>
           ))}
         </TableBody>

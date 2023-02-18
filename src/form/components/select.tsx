@@ -13,6 +13,7 @@ export default function Selected(props: any) {
       <FormControl fullWidth>
         <InputLabel id="selec">Selec</InputLabel>
         <Select
+        size="medium"
           name="idItemSelected"
           value={props.value}
           label="selec"

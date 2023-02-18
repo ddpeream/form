@@ -1,5 +1,5 @@
 export interface FormInterfase {
-    value?: string,
+    Valor?: string,
     idItemSelected?: number,
-    trm?: string,
+    TMR?: string,
 }

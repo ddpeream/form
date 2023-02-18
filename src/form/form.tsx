@@ -10,23 +10,20 @@ import Button from "@mui/material/Button";
 
 export function FormComponent() {
   const { addForm } = useContext(FormContext);
-  const [form, setForm] = useState<FormInterfase>({ idItemSelected: 0 });
-  const [validForm, setvalidForm] = useState({});
+  const [form, setForm] = useState<FormInterfase>({ Valor: '', idItemSelected: 0, TMR: '' });
   const [valueError, setValueError] = useState(false);
   const [tmrError, setTmrError] = useState(false);
   const [send, setSend] = useState(false);
 
   const onSubmit = async (event: any) => {
     event.preventDefault();
-    console.log("form valid", validForm, form);
-    fetchData(form);
-    // addForm(data)
-    setForm({ idItemSelected: 0 });
-    setvalidForm({});
+    const data = await fetchData(form);
+    console.log("form valid", form, data);
+    addForm(data)
+    setForm({ Valor: '', idItemSelected: 0, TMR: '' });
   };
 
   const onChangeForm = (event: any) => {
-    console.log("form cga 2", event.target.value);
     setForm({
       ...form,
       [event.target.name]: event.target.value,
@@ -35,13 +32,11 @@ export function FormComponent() {
 
   const handleOnChaneValue = (event: any) => {
     setValueError(!event.target.value);
-    // console.log('form cga', new Intl.NumberFormat('en-US').format(event.target.value), event)
   };
 
   const handleOnChaneSelect = (event: SelectChangeEvent) => {
     console.log("material", event.target);
     let valid = event.target.value.length !== 0;
-    setvalidForm({ ...validForm, idItemSelected: valid });
     setForm({
       ...form,
       idItemSelected: Number(event.target.value),
@@ -53,7 +48,7 @@ export function FormComponent() {
   };
 
   const handleOnClick = (event: any) => {
-    setForm({ idItemSelected: 0 });
+    setForm({ Valor: '', idItemSelected: 0, TMR: '' });
   };
   return (
     <FormContainer>
@@ -62,19 +57,16 @@ export function FormComponent() {
           error={valueError}
           field="Valor"
           onChange={handleOnChaneValue}
-          value={form.value}
+          value={form.Valor}
         />
         <Selected onChange={handleOnChaneSelect} value={form.idItemSelected} />
         <InputValue
           error={tmrError}
           onChange={handleOnChaneTmr}
           field="TMR"
-          value={form.trm}
+          value={form.TMR}
         />
         <div>
-          {/* <Button variant="contained" component="label"> */}
-          {/* enviar 
-      </Button> */}
           <Button
             variant="outlined"
             href="#contained-buttons"
@@ -92,4 +84,3 @@ export function FormComponent() {
     </FormContainer>
   );
 }
-export { Form };
