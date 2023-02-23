@@ -12,11 +12,10 @@ import { ContainerLoading } from "./table.styled";
 
 import TablePagination from '@mui/material/TablePagination';
 import { options } from "./objects/options-selected";
-import Error from "../common/error/error";
 
 export function Tabla() {
     
-  const { forms, loading, handleChangePage, handleChangeRowsPerPage, rowsPerPage, page, error } = useContext(FormContext);
+  const { forms, loading, handleChangePage, handleChangeRowsPerPage, rowsPerPage, page } = useContext(FormContext);
 
   if(loading){
     return (
@@ -24,10 +23,6 @@ export function Tabla() {
         <Loading />
       </ContainerLoading>
     )
-  }
-
-  if(error) {
-    return <Error/>
   }
 
   return (

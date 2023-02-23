@@ -50,7 +50,7 @@ export function FormProvaider(props: any) {
         setLoading(false);
       }
       } catch (error) {
-        // setError(error)
+        setError(true)
       }
     }
 
