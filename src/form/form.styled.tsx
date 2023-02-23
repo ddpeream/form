@@ -6,7 +6,7 @@ export const FormContainer = styled.div`
   background-color: #2d3875;
   display: flex;
   justify-content: center;
-  padding-top: 15px;
+  padding-top: 35px;
   padding-bottom: 15px;
   `;
 
@@ -20,3 +20,15 @@ export const Form = styled.form`
   justify-content: space-between;
   align-items: center;
 `;
+
+export const BottomContainer = styled.div`
+width: 100%;
+height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: end;
+  `;
+
+export const ErrorField = styled.div`
+color: red;
+  `;

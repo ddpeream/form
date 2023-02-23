@@ -1,10 +1,9 @@
-import { FormProvaider } from '../common/formContext';
-import './App.css';
+import { FormProvaider } from '../common/context/formContext';
 import AppUi from './AppUi';
 
 function App() {
   return (
-    <FormProvaider>
+    <FormProvaider>        
       <AppUi/>
     </FormProvaider>
   );

@@ -1,7 +1,8 @@
+import { ChangeEvent } from "react";
 import { TextField } from "@mui/material";
 
-export const InputValue = (props: any) => {
-    console.log('error', props)
+export const Input = (props: { error?: boolean; value: string; field: string; onChange?: ((event: ChangeEvent) => void) }) => {
+  
   return (
     <div>
       <TextField

@@ -1,26 +1,31 @@
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { useContext } from "react";
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+} from "@mui/material";
+import { FormContext } from "../../common/context/formContext";
+import { options } from "../objects/object-select";
 
-const options = [
-  { descrption: "seleccione" },
-  { id: 1, descrption: "selected 1" },
-  { id: 2, descrption: "selected 2" },
-  { id: 3, descrption: "selected 3" },
-];
+export default function Selected() {
+  const { form, selectError, handleOnChangeSelect } = useContext(FormContext);
 
-export default function Selected(props: any) {
+
   return (
     <div>
       <FormControl fullWidth>
         <InputLabel id="selec">Selec</InputLabel>
         <Select
-        size="medium"
+          error={selectError}
+          size="medium"
           name="idItemSelected"
-          value={props.value}
+          value={form.idItemSelected}
+          type={"string"}
           label="selec"
-          onChange={props.onChange}
+          onChange={handleOnChangeSelect}
         >
           {options.map((opt: any) => {
-            console.log("selected", props, opt);
             return (
               <MenuItem
                 key={opt.id}
@@ -28,7 +33,7 @@ export default function Selected(props: any) {
                 disabled={opt.id === undefined}
                 value={opt.id}
               >
-                {opt.descrption}
+                {opt.description}
               </MenuItem>
             );
           })}
