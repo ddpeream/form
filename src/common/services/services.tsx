@@ -1,6 +1,7 @@
 import axios, { AxiosError, isAxiosError } from "axios";
+import { FormInterfase } from "../../form/interfaces/interfase";
 
-export const PostForm = async (body: any) => {
+export const PostForm = async (body: FormInterfase) => {
 
   try {
     const BASE_URL  = process.env.REACT_APP_BASE_URL;
